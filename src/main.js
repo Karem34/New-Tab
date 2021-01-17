@@ -1,4 +1,30 @@
 // Javascript
+let dark_mode = localStorage.getItem('dark_mode')
+console.log(dark_mode)
+let checkBox = document.getElementById("checkbox");
+
+if (dark_mode === 'on') {
+    document.querySelectorAll('*').forEach(x=>x.classList.add('dark-mode'))
+    checkBox.checked = true
+}
+    document.getElementById("checkbox").addEventListener("click", darkMode);
+    
+    function darkMode() {
+
+    if (checkBox.checked == true){
+        document.querySelectorAll('*').forEach(x=>x.classList.add('dark-mode'))
+        if (dark_mode !== 'on'){
+            localStorage.setItem('dark_mode', 'on')
+        }
+        
+    } else {
+        document.querySelectorAll('*').forEach(x=>x.classList.remove('dark-mode'))
+        localStorage.setItem('dark_mode', null)
+
+    }
+  }
+  
+
 
 function showTime(){
     var date = new Date();
@@ -25,6 +51,4 @@ function showTime(){
 }
 
 showTime();
-
-
 
